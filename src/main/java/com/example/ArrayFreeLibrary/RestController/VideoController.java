@@ -52,7 +52,7 @@ public class VideoController {
 		newVideo.setTopic(new Topic(topicId,"","","","",newVideo.getContributor(),""));
 		videoService.updateTopic(newVideo);
 	}
-	@DeleteMapping("/videos/{id}")
+	@DeleteMapping("/topics/topicsId/videos/{id}")
 	public void deleteVideo( @PathVariable String id) {
 		videoService.deleteTopic(id);
 	}

@@ -2,36 +2,24 @@ package com.example.ArrayFreeLibrary.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity 
 @Table(name = "videos")
 public class Video {
 	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
-//	private Long id;
-
-	@Column(name = "keyword")
 	private String keyword;
 
-	@Column(name = "name")
 	private String name;
-	@Column(name = "type")
-//	private String type;
-//	@Column(name = "source")
 	private String source;
-	@Column(name = "author")
 	private String author;
-	@Column(name = "contributor")
 	private String contributor;
-	@Column(name = "contributor_email")
 	private String contributor_email;
-	@Column(name="description")
 	private String description ;
-	@Column(name="topic")
+	
+	@ManyToOne
 	private Topic topic;
 
 
@@ -55,7 +43,6 @@ public class Video {
 		//this.id = id;
 		this.keyword = keyword;
 		this.name = name;
-//		this.type = type;
 		this.source = source;
 		this.author = author;
 		this.contributor = contributor;
@@ -87,13 +74,7 @@ public class Video {
 	public void setName(String name) {
 		this.name = name;
 	}
-//	public String getType() {
-//		return type;
-//	}
-//	
-//	public void setType(String type) {
-//		this.type = type;
-//	}
+
 	public String getSource() {
 		return source;
 	}

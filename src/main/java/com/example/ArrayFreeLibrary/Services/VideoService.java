@@ -27,7 +27,7 @@ public class VideoService {
 		//return topics;
 		List<Video> videos = new ArrayList<>();
 		// geting all the instances from table
-		videoRepository.findAll().forEach(videos::add); //method reference
+		videoRepository.findByTopicKeyword(id).forEach(videos::add); //method reference
 		return videos;
 	}
 	

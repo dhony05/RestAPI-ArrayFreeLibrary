@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ArrayFreeLibrary.Model.Book;
+import com.example.ArrayFreeLibrary.Model.Topic;
 import com.example.ArrayFreeLibrary.Services.BookService;
 
 
@@ -26,30 +27,32 @@ public class BookController {
 	private BookService bookService;
 	
 	
-	@RequestMapping("/books")
-	public List<Book> getAllBooks(){
-		return bookService.getAllBooks();
+	@RequestMapping("/topics/{id}/books")
+	public List<Book> getAllBooks(@PathVariable String id){
+		return bookService.getAllBooks(id);
 							
 				
 	}
-	@GetMapping("/books/{id}")
+	@GetMapping("/topics/{bookId}/books/{id}")
 	public Book getBook(@PathVariable String id) {
 		return bookService.getBook(id);
 	}
 	
 	//@RequestMapping(method=RequestMethod.POST,value="/topics")
-	@PostMapping("/books")
-	public void addBooks(@RequestBody @Valid Book newBook) {
+	@PostMapping("/topics/{topicId}/books")
+	public void addBooks(@RequestBody @Valid Book newBook,@PathVariable String topicId) {
 		System.out.println("controller method: " + newBook);
+		newBook.setTopic(new Topic(topicId,"","","","",newBook.getContributor(),""));
 		bookService.addBook(newBook);
 	}
 	
-	@PutMapping("/books/{id}")
-	public void updateBook(@RequestBody Book newBook, @PathVariable String id) {
+	@PutMapping("/topics/topics{id}/books/{id}")
+	public void updateBook(@RequestBody Book newBook,@PathVariable String topicId, @PathVariable String id) {
 		System.out.println("put method" + newBook);
-		bookService.updateBook(id, newBook);
+		newBook.setTopic(new Topic(topicId,"","","","",newBook.getContributor(),""));
+		bookService.updateBook(newBook);
 	}
-	@DeleteMapping("/books/{id}")
+	@DeleteMapping("/topics/topicsId/books/{id}")
 	public void deleteBook( @PathVariable String id) {
 		bookService.deleteBook(id);
 	}

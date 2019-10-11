@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity 
@@ -16,22 +17,14 @@ public class Book {
 
 	@Column(name = "keyword")
 	private String keyword;
-
-	@Column(name = "name")
 	private String name;
-	@Column(name = "type")
-//	private String type;
-//	@Column(name = "source")
 	private String source;
-	@Column(name = "author")
 	private String author;
-	@Column(name = "contributor")
 	private String contributor;
-	@Column(name = "contributor_email")
 	private String contributor_email;
-	@Column(name="description")
 	private String description ;
-	@Column(name="topic")
+	
+	@ManyToOne
 	private Topic topic;
 
 
@@ -42,16 +35,15 @@ public class Book {
 		this.contributor = null;
 		this.contributor_email = null;
 		this.description = null;
-		this.description = null;
+		this.topic = null;
 	}
 
 	public Book(String keyword, String name,String source,String author,
 			String contributor,String contributor_email, String description, Topic topic) {
 		super();
-		//this.id = id;
+	
 		this.keyword = keyword;
 		this.name = name;
-//		this.type = type;
 		this.source = source;
 		this.author = author;
 		this.contributor = contributor;
@@ -60,13 +52,7 @@ public class Book {
 		this.topic = new Topic(keyword,"","","","",contributor,"");
 	}
 
-//	public Long getId() {
-//		return id;
-//	}
-//
-//	public void setId(Long id) {
-//		this.id = id;
-//	}
+
 	public String getKeyword() {
 		return keyword;
 	}
@@ -83,13 +69,7 @@ public class Book {
 	public void setName(String name) {
 		this.name = name;
 	}
-//	public String getType() {
-//		return type;
-//	}
-//	
-//	public void setType(String type) {
-//		this.type = type;
-//	}
+
 	public String getSource() {
 		return source;
 	}

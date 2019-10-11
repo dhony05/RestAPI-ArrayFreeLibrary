@@ -23,11 +23,11 @@ public class BookService {
 	
 	//business service
 	
-	public List<Book> getAllBooks(){
+	public List<Book> getAllBooks(String id){
 		//return topics;
 		List<Book> books = new ArrayList<>();
 		// geting all the instances from table
-		bookRepository.findAll().forEach(books::add); //method reference
+		bookRepository.findByTopicKeyword(id).forEach(books::add); //method reference
 		return books;
 	}
 	
@@ -47,7 +47,7 @@ public class BookService {
 	}
 
 
-	public void updateBook(String id, Book newBook) {
+	public void updateBook(Book newBook) {
 		bookRepository.save(newBook);
 
 		//topics.set(topics.indexOf(getTopic(id)),newTopic);
