@@ -49,7 +49,7 @@ public class Book {
 		this.contributor = contributor;
 		this.contributor_email =  contributor_email;
 		this.description = description;
-		this.topic = new Topic(keyword,"","","","",contributor,"");
+		this.topic = new Topic(keyword,"","","","");
 	}
 
 
@@ -121,11 +121,12 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return   ", keyword=" + keyword + ", name=" + name + ", source=" + source + ", author="
-				+ author + ", contributor=" + contributor + ", contributor_email=" + contributor_email
-				+ ", description=" + description + "]";
+		return "Book [keyword=" + keyword + ", name=" + name + ", source=" + source + ", author=" + author
+				+ ", contributor=" + contributor + ", contributor_email=" + contributor_email + ", description="
+				+ description + ", topic=" + topic + "]";
 	}
 
+	
 
 
 

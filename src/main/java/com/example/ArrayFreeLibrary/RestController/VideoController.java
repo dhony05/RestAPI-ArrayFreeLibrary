@@ -42,17 +42,17 @@ public class VideoController {
 	@PostMapping("/topics/{topicId}/videos")
 	public void addVideos(@RequestBody Video newVideo,@PathVariable String topicId) {
 		//System.out.println("controller method: " + newVideo);
-		newVideo.setTopic(new Topic(topicId,"","","","",newVideo.getContributor(),""));
+		newVideo.setTopic(new Topic(topicId,"","","",""));
 		videoService.addVideo(newVideo);
 	}
 	
-	@PutMapping("/topics/topics{id}/videos/{id}")
+	@PutMapping("/topics/{topics{id}/videos/{id}")
 	public void updateVideo(@RequestBody Video newVideo,@PathVariable String topicId , @PathVariable String id) {
 		//System.out.println("put method" + newVideo);
-		newVideo.setTopic(new Topic(topicId,"","","","",newVideo.getContributor(),""));
+		newVideo.setTopic(new Topic(topicId,"","","",""));
 		videoService.updateTopic(newVideo);
 	}
-	@DeleteMapping("/topics/topicsId/videos/{id}")
+	@DeleteMapping("/topics/{topicsId}/videos/{id}")
 	public void deleteVideo( @PathVariable String id) {
 		videoService.deleteTopic(id);
 	}

@@ -1,6 +1,6 @@
 package com.example.ArrayFreeLibrary.Model;
 
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -48,7 +48,7 @@ public class Video {
 		this.contributor = contributor;
 		this.contributor_email =  contributor_email;
 		this.description = description;
-		this.topic = new Topic(keyword,"","","","",contributor,"");
+		this.topic = new Topic(keyword,"","","","");
 	}
 
 //	public Long getId() {

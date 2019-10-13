@@ -42,14 +42,14 @@ public class BookController {
 	@PostMapping("/topics/{topicId}/books")
 	public void addBooks(@RequestBody @Valid Book newBook,@PathVariable String topicId) {
 		System.out.println("controller method: " + newBook);
-		newBook.setTopic(new Topic(topicId,"","","","",newBook.getContributor(),""));
+		newBook.setTopic(new Topic(topicId,"","",newBook.getContributor(),""));
 		bookService.addBook(newBook);
 	}
 	
 	@PutMapping("/topics/topics{id}/books/{id}")
 	public void updateBook(@RequestBody Book newBook,@PathVariable String topicId, @PathVariable String id) {
 		System.out.println("put method" + newBook);
-		newBook.setTopic(new Topic(topicId,"","","","",newBook.getContributor(),""));
+		newBook.setTopic(new Topic(topicId,"","",newBook.getContributor(),""));
 		bookService.updateBook(newBook);
 	}
 	@DeleteMapping("/topics/topicsId/books/{id}")
