@@ -46,13 +46,13 @@ public class BookController {
 		bookService.addBook(newBook);
 	}
 	
-	@PutMapping("/topics/topics{id}/books/{id}")
+	@PutMapping("/topics/{topicsId}/books/{id}")
 	public void updateBook(@RequestBody Book newBook,@PathVariable String topicId, @PathVariable String id) {
 		System.out.println("put method" + newBook);
 		newBook.setTopic(new Topic(topicId,"","",newBook.getContributor(),""));
 		bookService.updateBook(newBook);
 	}
-	@DeleteMapping("/topics/topicsId/books/{id}")
+	@DeleteMapping("/topics/{topicsId}/books/{id}")
 	public void deleteBook( @PathVariable String id) {
 		bookService.deleteBook(id);
 	}
