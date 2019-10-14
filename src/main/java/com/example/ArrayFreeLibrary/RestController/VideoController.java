@@ -46,7 +46,7 @@ public class VideoController {
 		videoService.addVideo(newVideo);
 	}
 	
-	@PutMapping("/topics/{topics{id}/videos/{id}")
+	@PutMapping("/topics/{topicId}/videos/{id}")
 	public void updateVideo(@RequestBody Video newVideo,@PathVariable String topicId , @PathVariable String id) {
 		//System.out.println("put method" + newVideo);
 		newVideo.setTopic(new Topic(topicId,"","","",""));
